@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head-content"></head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+<!-- Navbar -->
+<nav class="bg-white shadow-md">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+        <a href="/" class="text-2xl font-bold text-blue-600">Confessly</a>
+        <div class="space-x-6">
+            <a href="#home" class="hover:text-blue-600 font-medium">Home</a>
+            <a href="/auth/register" class="hover:text-blue-600 font-medium">Register</a>
+            <a href="/auth/login" class="hover:text-blue-600 font-medium">Login</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="home" class="bg-blue-100 py-20 text-center">
+    <div class="container mx-auto px-4">
+        <h1 class="text-4xl md:text-5xl font-bold text-blue-800 mb-4">Speak Freely. Anonymously.</h1>
+        <p class="text-lg md:text-xl text-blue-900 mb-8">Confess your thoughts without judgment. 100% anonymous, always.</p>
+        <a href="/auth/register" class="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition">Start Confessing</a>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="py-16 bg-white">
+    <div class="container mx-auto px-4 max-w-4xl text-center">
+        <h2 class="text-3xl font-semibold mb-4">About Confessly</h2>
+        <p class="text-gray-700 text-lg">
+            Confessly is a safe space to share your feelings, thoughts, and experiences without revealing your identity.
+            Whether you're feeling overwhelmed, guilty, or just need to get something off your chest — we're here for you.
+        </p>
+    </div>
+</section>
+
+<!-- How it works Section -->
+<section id="how" class="py-16 bg-gray-100">
+    <div class="container mx-auto px-4 max-w-5xl">
+        <h2 class="text-3xl font-semibold text-center mb-10">How It Works</h2>
+        <div class="grid md:grid-cols-3 gap-8 text-center">
+            <div class="bg-white p-6 rounded shadow">
+                <h3 class="text-xl font-bold mb-2">1. Stay Anonymous</h3>
+                <p>We never ask for your real name. Your identity is safe and secure.</p>
+            </div>
+            <div class="bg-white p-6 rounded shadow">
+                <h3 class="text-xl font-bold mb-2">2. Share Freely</h3>
+                <p>Write what’s on your mind. No filters. No limits. Just honesty.</p>
+            </div>
+            <div class="bg-white p-6 rounded shadow">
+                <h3 class="text-xl font-bold mb-2">3. Read & Relate</h3>
+                <p>See what others are saying. You're not alone in how you feel.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-white text-center py-6 border-t mt-10">
+    <p class="text-sm text-gray-600">&copy; 2025 Confessly. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

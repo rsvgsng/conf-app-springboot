@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Confession Details</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans text-gray-800">
+
+<div class="max-w-4xl mx-auto p-6">
+
+    <!-- Back Button -->
+    <a href="/confession/all" class="text-sm text-blue-600 hover:underline mb-6 inline-block">
+        ← Back to all confessions
+    </a>
+
+    <!-- Confession Card -->
+    <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+        <!-- Title -->
+        <h1 class="text-2xl font-bold mb-4 text-gray-800" th:text="${confession.title}">
+
+        </h1>
+
+        <!-- Metadata -->
+        <div class="text-sm text-gray-500 mb-4" th:text="${#dates.format(confession.createdAt, 'dd MMMM yyyy')}">
+
+        </div>
+
+        <!-- Content -->
+        <p class="text-gray-700 leading-relaxed text-base" th:text="${confession.content}">
+
+        </p>
+    </div>
+
+</div>
+
+</body>
+</html>
