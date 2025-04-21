@@ -22,12 +22,7 @@ public class HomeService {
         } else {
             System.out.println("User not found");
         }
-
-
         return  user;
     }
-
-
-
 
 }

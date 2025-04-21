@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Confession</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+
+<div class="bg-white p-8 rounded-2xl shadow-lg w-full max-w-md">
+    <h1 class="text-2xl font-bold mb-6 text-center">Create a Confession</h1>
+
+    <form th:action="@{/confession/createconfession}" th:object="${confession}" method="post" class="space-y-5">
+        <div>
+            <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
+            <input type="text" id="title" th:field="*{title}" placeholder="Enter a title"
+                   class="mt-1 w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none">
+            <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}" class="text-red-500 text-sm mt-1"></p>
+        </div>
+
+        <div>
+            <label for="content" class="block text-sm font-medium text-gray-700">Content</label>
+            <textarea id="content" th:field="*{content}" placeholder="Write your confession..."
+                      rows="4"
+                      class="mt-1 w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"></textarea>
+            <p th:if="${#fields.hasErrors('content')}" th:errors="*{content}" class="text-red-500 text-sm mt-1"></p>
+        </div>
+
+        <div>
+            <button type="submit"
+                    class="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 rounded-lg transition duration-300">
+                Submit Confession
+            </button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

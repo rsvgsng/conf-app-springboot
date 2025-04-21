@@ -1,27 +1,34 @@
 package com.ghising.crud.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
-@Entity
-@Table(name = "users")
-@Data
-public class UserEntity {
 
+@Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "users")
+public class UserEntity {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
-
+    
     private String name;
-
-    @Column(unique = true)
     private String username;
-
     private String password;
-
+    
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
+    
+    @OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
+    private List<PostEntity> confessions = new ArrayList<>();
+
 }

@@ -1,0 +1,20 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="fragments/head :: head-content">
+    <title>404 Error</title>
+</head>
+<body class="bg-gray-100 h-screen flex items-center justify-center">
+
+<div class="text-center">
+    <h1 class="text-7xl font-bold text-red-600">404</h1>
+    <p class="text-gray-600 mt-2" th:text="${message}"/>
+
+    <div class="mt-6">
+        <a href="/" class="inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition">
+            Back to Home
+        </a>
+    </div>
+</div>
+
+</body>
+</html>

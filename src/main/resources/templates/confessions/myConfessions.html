@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Confessions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans text-gray-800">
+
+<div class="max-w-4xl mx-auto p-6">
+    <div class="flex justify-between items-center mb-6">
+        <h1 class="text-2xl font-bold text-gray-800">My Confessions</h1>
+        <div class="space-x-4">
+            <a href="/confession/create" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">New Confession</a>
+            <a href="/confession/all" class="text-blue-600 hover:underline">All Confessions</a>
+            <form th:action="@{/auth/logout}" method="post" class="inline">
+                <button type="submit" class="text-red-600 hover:underline">Logout</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div th:each="confession : ${confessions}" class="bg-white p-4 rounded-lg shadow-md border border-gray-200">
+            <h2 class="text-xl font-semibold mb-2" th:text="${confession.title}"></h2>
+            <p class="text-gray-600 text-sm mb-3" th:text="${#dates.format(confession.createdAt, 'dd MMMM yyyy')}"></p>
+            <p class="text-gray-700 mb-4" th:text="${#strings.abbreviate(confession.content, 150)}"></p>
+            <a th:href="@{/confession/{id}(id=${confession.id})}" class="text-blue-600 hover:underline">Read more</a>
+        </div>
+    </div>
+    
+    <div th:if="${confessions.empty}" class="text-center py-10">
+        <p class="text-gray-500">You haven't made any confessions yet.</p>
+        <a href="/confession/create" class="text-blue-600 hover:underline">Create your first confession</a>
+    </div>
+</div>
+
+</body>
+</html>

@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
+import java.util.Date;
 import java.util.UUID;
 
 @Data
@@ -20,9 +21,16 @@ public class PostEntity {
     @NotNull(message = "Content is required")
     private String content;
 
-    @NotNull(message = "Author is required")
-    private String author;
+    // This annotation explicitly names the column for the foreign key
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private UserEntity author;
 
-    private String createdAt;
-
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createdAt;
+    
+    @PrePersist
+    public void prePersist() {
+        createdAt = new Date();
+    }
 }
